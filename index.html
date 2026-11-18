@@ -1,0 +1,607 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini Google Page | 1998</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #4285f4;
+    --purple: #7655db;
+    --bg: #f2f5fc;
+    --text: #252b3a;
+    --muted: #72798a;
+    --white: #fff;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #eef3ff, #f7f1ff);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+/* HEADER */
+
+header {
+    text-align: center;
+    padding: 38px 15px 30px;
+    background: linear-gradient(120deg, #e5edff, #f0e9ff);
+    border-bottom: 1px solid #dce3f5;
+}
+
+.logo {
+    font-size: clamp(35px, 6vw, 52px);
+    font-weight: 800;
+    letter-spacing: -3px;
+    margin-bottom: 10px;
+}
+
+.logo .b { color: #4285f4; }
+.logo .r { color: #ea4335; }
+.logo .y { color: #fbbc05; }
+.logo .g { color: #34a853; }
+
+header h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+header p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.year {
+    display: inline-block;
+    background: #fff;
+    color: #6550c5;
+    padding: 6px 15px;
+    border-radius: 30px;
+    margin-top: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0 3px 12px #0000000c;
+}
+
+/* MAIN LAYOUT */
+
+.container {
+    width: min(1250px, 94%);
+    margin: 35px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    align-items: start;
+}
+
+/* PANELS */
+
+.panel {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px #283b6a12;
+    border: 1px solid #e6eaf3;
+    transition: .3s;
+}
+
+.panel:hover {
+    box-shadow: 0 12px 35px #283b6a20;
+    transform: translateY(-3px);
+}
+
+.panel-header {
+    padding: 24px;
+    color: white;
+}
+
+.old-panel .panel-header {
+    background: linear-gradient(120deg, #f09b47, #e56d58);
+}
+
+.new-panel .panel-header {
+    background: linear-gradient(120deg, #4285f4, #7655db);
+}
+
+.panel-header h2 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.panel-header p {
+    font-size: 13px;
+    opacity: .9;
+    line-height: 1.5;
+}
+
+.panel-content {
+    padding: 20px;
+}
+
+/* METHOD LABEL */
+
+.method-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    gap: 8px;
+}
+
+.method-label h3 {
+    font-size: 16px;
+}
+
+.method-label span {
+    font-size: 11px;
+    padding: 6px 10px;
+    background: #f0f2fa;
+    border-radius: 20px;
+    color: #65708a;
+    white-space: nowrap;
+}
+
+/* OLD LINKS */
+
+.old-result {
+    padding: 15px;
+    margin-bottom: 12px;
+    border: 1px solid #eee5dc;
+    border-radius: 12px;
+    background: #fffaf5;
+    transition: .2s;
+}
+
+.old-result:hover {
+    border-color: #edb47e;
+    background: #fff5e9;
+    transform: translateX(4px);
+}
+
+.old-result h3 {
+    font-size: 15px;
+    margin-bottom: 7px;
+}
+
+.old-result a {
+    color: #1754b5;
+    text-decoration: underline;
+}
+
+.old-result p {
+    font-size: 13px;
+    color: #626777;
+    line-height: 1.5;
+    margin: 5px 0;
+}
+
+.old-result .number {
+    color: #d17b36;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.old-result small {
+    color: #777;
+    font-size: 12px;
+}
+
+/* NEW LINKS */
+
+.search-box {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 14px;
+    border: 1px solid #e0e4ee;
+    border-radius: 10px;
+    outline: none;
+    font-size: 13px;
+    background: #fafbff;
+}
+
+.search-box input:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px #4285f41a;
+}
+
+button {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 9px;
+    cursor: pointer;
+    background: var(--blue);
+    color: white;
+    font-weight: bold;
+    transition: .2s;
+}
+
+button:hover {
+    background: #2865c7;
+    transform: translateY(-2px);
+}
+
+.new-result {
+    padding: 16px;
+    border: 1px solid #e8eaf4;
+    border-radius: 13px;
+    margin-bottom: 12px;
+    background: #fff;
+    transition: .25s;
+}
+
+.new-result:hover {
+    border-color: #9daef9;
+    box-shadow: 0 5px 18px #4285f415;
+    transform: translateY(-3px);
+}
+
+.new-result h3 {
+    font-size: 15px;
+    margin-bottom: 7px;
+}
+
+.new-result h3 a {
+    text-decoration: none;
+    color: #285ec2;
+}
+
+.new-result h3 a:hover {
+    text-decoration: underline;
+}
+
+.url {
+    color: #17834c;
+    font-size: 12px;
+    margin-bottom: 7px;
+    overflow-wrap: anywhere;
+}
+
+.description {
+    font-size: 13px;
+    color: #626777;
+    line-height: 1.5;
+}
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    margin-top: 12px;
+    font-size: 11px;
+    color: #777;
+}
+
+.links a {
+    background: #eef2ff;
+    color: #4059b5;
+    padding: 6px 10px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.links a:hover {
+    background: #dce4ff;
+    color: #1e40af;
+}
+
+/* EMPTY SEARCH */
+
+.no-results {
+    display: none;
+    padding: 30px 10px;
+    text-align: center;
+    color: var(--muted);
+    background: #f7f8fc;
+    border-radius: 12px;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 28px 15px;
+    color: #81899b;
+    font-size: 12px;
+}
+
+footer strong {
+    color: #6550c5;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 850px) {
+    .container {
+        grid-template-columns: 1fr;
+        max-width: 620px;
+    }
+}
+
+@media(max-width: 480px) {
+    header {
+        padding: 28px 12px;
+    }
+
+    .container {
+        width: 94%;
+        margin: 20px auto;
+    }
+
+    .panel-content {
+        padding: 14px;
+    }
+
+    .panel-header {
+        padding: 20px;
+    }
+
+    .search-box {
+        flex-wrap: wrap;
+    }
+
+    .search-box input {
+        width: 100%;
+        flex-basis: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP HEADING -->
+
+<header>
+    <div class="logo">
+        <span class="b">M</span><span class="r">i</span><span class="y">n</span><span class="b">i</span>
+        <span class="g">G</span><span class="r">o</span><span class="y">o</span><span class="b">g</span><span class="g">l</span><span class="r">e</span>
+    </div>
+
+    <h1>Mini Google Page</h1>
+    <p>Exploring the Evolution of Website Linking</p>
+
+    <div class="year">EST. 1998 · OLD WEB MEETS NEW WEB</div>
+</header>
+
+
+<div class="container">
+
+    <!-- LEFT: OLD METHOD -->
+
+    <section class="panel old-panel">
+
+        <div class="panel-header">
+            <h2>📜 Old Method of Linking</h2>
+            <p>The traditional way of connecting websites through simple HTML hyperlinks.</p>
+        </div>
+
+        <div class="panel-content">
+
+            <div class="method-label">
+                <h3>Website Directory</h3>
+                <span>CLASSIC STYLE</span>
+            </div>
+
+            <div class="old-result" id="old1">
+                <h3><span class="number">1.</span>
+                <a href="http://pune-food-guide.com" target="_blank">pune-food-guide.com</a></h3>
+                <p>Where to eat in Pune - vada pav and biryani and pizza</p>
+                <small>Links to: <a href="#old2">2</a></small>
+            </div>
+
+            <div class="old-result" id="old2">
+                <h3><span class="number">2.</span>
+                <a href="http://best-pizza-pune.com" target="_blank">best-pizza-pune.com</a></h3>
+                <p>Fresh wood-fired pizza made daily - try our cheese pizza</p>
+                <small>Links to: <a href="#old1">1</a>, <a href="#old3">3</a></small>
+            </div>
+
+            <div class="old-result" id="old3">
+                <h3><span class="number">3.</span>
+                <a href="http://college-canteen-blog.com" target="_blank">college-canteen-blog.com</a></h3>
+                <p>Student reviews of canteen food and chai and Friday pizza</p>
+                <small>Links to: <a href="#old2">2</a>, <a href="#old4">4</a></small>
+            </div>
+
+            <div class="old-result" id="old4">
+                <h3><span class="number">4.</span>
+                <a href="http://pizza-recipes-home.com" target="_blank">pizza-recipes-home.com</a></h3>
+                <p>Make pizza at home - pizza dough and pizza sauce</p>
+                <small>Links to: <a href="#old2">2</a>, <a href="#old5">5</a></small>
+            </div>
+
+            <div class="old-result" id="old5">
+                <h3><span class="number">5.</span>
+                <a href="http://cheap-eats-pune.com" target="_blank">cheap-eats-pune.com</a></h3>
+                <p>Good food under 100 rupees - misal and dosa and pizza slices</p>
+                <small>Links to: <a href="#old2">2</a></small>
+            </div>
+
+            <div class="old-result" id="old6">
+                <h3><span class="number">6.</span>
+                <a href="http://pizza-pizza-pizza.com" target="_blank">pizza-pizza-pizza.com</a></h3>
+                <p>pizza pizza pizza pizza pizza pizza pizza pizza pizza pizza</p>
+                <small>Links to: <a href="#old1">1</a></small>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- RIGHT: NEW METHOD -->
+
+    <section class="panel new-panel">
+
+        <div class="panel-header">
+            <h2>🚀 New Method of Linking</h2>
+            <p>A structured website directory with descriptions, URLs and connected pages.</p>
+        </div>
+
+        <div class="panel-content">
+
+            <div class="method-label">
+                <h3>Connected Websites</h3>
+                <span>MODERN STYLE</span>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="searchInput"
+                    placeholder="🔍 Search websites...">
+                <button onclick="searchWeb()">Search</button>
+                <button onclick="showAll()">All</button>
+            </div>
+
+            <div id="newResults">
+
+                <div class="new-result" id="new1"
+                data-search="pune food guide vada pav biryani pizza">
+                    <h3>1. <a href="http://pune-food-guide.com" target="_blank">pune-food-guide.com</a></h3>
+                    <div class="url">http://pune-food-guide.com</div>
+                    <div class="description">Where to eat in Pune - vada pav and biryani and pizza</div>
+                    <div class="links">CONNECTED TO:
+                        <a href="#new2">Website 2 →</a>
+                    </div>
+                </div>
+
+                <div class="new-result" id="new2"
+                data-search="best pizza pune fresh wood fired cheese pizza">
+                    <h3>2. <a href="http://best-pizza-pune.com" target="_blank">best-pizza-pune.com</a></h3>
+                    <div class="url">http://best-pizza-pune.com</div>
+                    <div class="description">Fresh wood-fired pizza made daily - try our cheese pizza</div>
+                    <div class="links">CONNECTED TO:
+                        <a href="#new1">Website 1 →</a>
+                        <a href="#new3">Website 3 →</a>
+                    </div>
+                </div>
+
+                <div class="new-result" id="new3"
+                data-search="college canteen blog student reviews chai friday pizza">
+                    <h3>3. <a href="http://college-canteen-blog.com" target="_blank">college-canteen-blog.com</a></h3>
+                    <div class="url">http://college-canteen-blog.com</div>
+                    <div class="description">Student reviews of canteen food and chai and Friday pizza</div>
+                    <div class="links">CONNECTED TO:
+                        <a href="#new2">Website 2 →</a>
+                        <a href="#new4">Website 4 →</a>
+                    </div>
+                </div>
+
+                <div class="new-result" id="new4"
+                data-search="pizza recipes home dough sauce make pizza">
+                    <h3>4. <a href="http://pizza-recipes-home.com" target="_blank">pizza-recipes-home.com</a></h3>
+                    <div class="url">http://pizza-recipes-home.com</div>
+                    <div class="description">Make pizza at home - pizza dough and pizza sauce</div>
+                    <div class="links">CONNECTED TO:
+                        <a href="#new2">Website 2 →</a>
+                        <a href="#new5">Website 5 →</a>
+                    </div>
+                </div>
+
+                <div class="new-result" id="new5"
+                data-search="cheap eats pune under 100 misal dosa pizza slices">
+                    <h3>5. <a href="http://cheap-eats-pune.com" target="_blank">cheap-eats-pune.com</a></h3>
+                    <div class="url">http://cheap-eats-pune.com</div>
+                    <div class="description">Good food under 100 rupees - misal and dosa and pizza slices</div>
+                    <div class="links">CONNECTED TO:
+                        <a href="#new2">Website 2 →</a>
+                    </div>
+                </div>
+
+                <div class="new-result" id="new6"
+                data-search="pizza pizza pizza">
+                    <h3>6. <a href="http://pizza-pizza-pizza.com" target="_blank">pizza-pizza-pizza.com</a></h3>
+                    <div class="url">http://pizza-pizza-pizza.com</div>
+                    <div class="description">pizza pizza pizza pizza pizza pizza pizza pizza pizza pizza</div>
+                    <div class="links">CONNECTED TO:
+                        <a href="#new1">Website 1 →</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="no-results" id="noResults">
+                🔍 No matching websites found!
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <strong>Mini Google Page</strong> · 1998–2026
+    <br><br>
+    Made to demonstrate the evolution of website linking ❤️
+</footer>
+
+
+<script>
+
+function searchWeb() {
+
+    const query = document.getElementById("searchInput")
+        .value.toLowerCase().trim();
+
+    const sites = document.querySelectorAll(".new-result");
+    let count = 0;
+
+    sites.forEach(site => {
+
+        const content = (
+            site.dataset.search + " " + site.innerText
+        ).toLowerCase();
+
+        const match = content.includes(query);
+
+        site.style.display = match ? "block" : "none";
+
+        if (match) count++;
+    });
+
+    document.getElementById("noResults").style.display =
+        count === 0 ? "block" : "none";
+}
+
+function showAll() {
+
+    document.getElementById("searchInput").value = "";
+
+    document.querySelectorAll(".new-result").forEach(site => {
+        site.style.display = "block";
+    });
+
+    document.getElementById("noResults").style.display = "none";
+}
+
+document.getElementById("searchInput")
+.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+        searchWeb();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
+
+
+
